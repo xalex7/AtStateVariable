@@ -12,11 +12,17 @@ struct ContentView: View {
     @State var switcher: Bool = true
     
     var body: some View {
-        VStack {
-            Button(action: {self.switcher.toggle()}) {
-                Circle()
-                    .foregroundColor(Color(switcher ? "C1" : "C2"))
-                    .padding()
+        GeometryReader { g in
+            HStack {
+                Button(action: {self.switcher.toggle()}) {
+                    Text(self.switcher ? "OFF" : "ON")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .frame(width: g.size.width, height: g.size.height + 200)
+                        .background(Color(self.switcher ? .black : .white))
+                        .edgesIgnoringSafeArea(.all)
+                    
+                }
             }
         }
     }

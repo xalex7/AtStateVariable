@@ -9,8 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var switcher: Bool = true
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Button(action: {self.switcher.toggle()}) {
+                Circle()
+                    .foregroundColor(Color(switcher ? "C1" : "C2"))
+                    .padding()
+            }
+        }
     }
 }
 
